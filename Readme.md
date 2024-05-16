@@ -98,6 +98,14 @@ Pour exécuter le script `projet-Image.py`, assurez-vous d'être dans le répert
 python projet-Image.py
 ```
 
+## Problèmes rencontrés lors de la mise en place du programme
+
+### Erreur de "too many positional arguments" lors de l'application du transfert de style
+Lors de l'application du transfert de style à une image à l'aide du module TensorFlow Hub, une erreur "too many positional arguments" est survenue. Cela suggère que nous avons passé trop d'arguments de position lors de l'appel de la fonction `hub_module`. Il est probable que nous ayons inclus des arguments inutiles dans cet appel. Nous devons réviser l'appel à la fonction `hub_module` pour nous assurer que nous passons le bon nombre d'arguments.
+
+### Erreur de "Scalar tensor has no `len()`"
+Une autre erreur rencontrée était "Scalar tensor has no `len()`". Cette erreur survient lorsqu'on essaie d'utiliser la fonction `len()` sur un tenseur scalaire. Un tenseur scalaire ne contient qu'une seule valeur, donc il n'a pas de dimension à vérifier avec `len()`. Pour résoudre cette erreur, nous devons examiner les endroits où nous utilisons la fonction `len()` et nous assurer qu'elle est utilisée correctement sur des tenseurs appropriés.
+
 ## Conclusion
 
 Ce projet démontre les possibilités offertes par l'intégration de différentes technologies pour le traitement d'images et la génération de texte. En combinant les services cloud avec des bibliothèques open-source, il est possible de créer des systèmes puissants capables d'analyser, transformer et interpréter des données visuelles de manière automatique et intelligente.

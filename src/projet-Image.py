@@ -36,9 +36,9 @@ def apply_style_transfer(file_path, hub_module):
         content_image = tf.image.decode_image(content_image, channels=3)
         content_image = tf.image.convert_image_dtype(content_image, tf.float32)
         content_image = tf.image.resize(content_image, (256, 256))  # Redimensionne l'image à la taille attendue
-
+        
         # Applique le transfert de style
-        stylized_image = hub_module(tf.convert_to_tensor(content_image))
+        stylized_image = hub_module(tf.expand_dims(content_image, axis=0))
 
         # Sauvegarde l'image stylisée
         output_path = 'stylized_image.png'
