@@ -101,4 +101,3 @@ python projet-Image.py
 ## Conclusion
 
 Ce projet démontre les possibilités offertes par l'intégration de différentes technologies pour le traitement d'images et la génération de texte. En combinant les services cloud avec des bibliothèques open-source, il est possible de créer des systèmes puissants capables d'analyser, transformer et interpréter des données visuelles de manière automatique et intelligente.
-``` 
