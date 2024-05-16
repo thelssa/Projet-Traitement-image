@@ -20,6 +20,10 @@ bibliography: [biblio.bib]
 - Documentation officielle d'OpenAI : [https://beta.openai.com/docs](https://beta.openai.com/docs)
 - Documentation officielle d'Azure Cognitive Services : [https://docs.microsoft.com/fr-fr/azure/cognitive-services/](https://docs.microsoft.com/fr-fr/azure/cognitive-services/)
 
+
+## Introduction
+Ce projet  a pour objectif de créer un programme capable de traiter des images de manière avancée. En combinant différentes technologies comme Azure Cognitive Services, OpenAI GPT-3 et TensorFlow, ce programme permet de sélectionner une image, d'analyser son contenu, d'appliquer des effets artistiques et enfin de générer une description du contenu détecté.
+
 ## Contexte et Objectifs
 
 ### Azure Cognitive Services
