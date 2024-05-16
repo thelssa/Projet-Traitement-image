@@ -38,7 +38,7 @@ def apply_style_transfer(file_path, hub_module):
         content_image = tf.image.resize(content_image, (256, 256))  # Redimensionne l'image à la taille attendue
 
         # Applique le transfert de style
-        stylized_image = hub_module(content_image)
+        stylized_image = hub_module(tf.convert_to_tensor(content_image))
 
         # Sauvegarde l'image stylisée
         output_path = 'stylized_image.png'
@@ -69,7 +69,7 @@ def generate_text(tags, prompt):
 def describe_image(file_path, api_credentials):
     try:
         # Initialisation du client Computer Vision
-        credentials = CognitiveServicesCredentials(api_credentials['azure_cv_key'])
+        credentials = CognitiveServicesCredentials(api_credentials['azure_key'])
         client = ComputerVisionClient(api_credentials['azure_endpoint'], credentials)
 
         # Analyse de l'image
@@ -80,6 +80,15 @@ def describe_image(file_path, api_credentials):
     except Exception as e:
         print(f"Erreur lors de la description de l'image avec Azure Cognitive Services : {e}")
         return None
+
+# Fonction pour afficher une image
+def show_image(image_path):
+    try:
+        from PIL import Image
+        image = Image.open(image_path)
+        image.show()
+    except Exception as e:
+        print(f"Erreur lors de l'affichage de l'image : {e}")
 
 def main():
     # Chargement des clés d'API
@@ -115,7 +124,7 @@ def main():
     print(f"Description de l'image : {image_description}")
 
     # Demande à l'utilisateur d'entrer un texte pour la modification de l'image
-    prompt = input("Quelle modification voulez vous apporter à l'image? : ")
+    prompt = input("Quelle modification voulez-vous apporter à l'image? : ")
 
     # Traitement de l'image
     styled_image_path = apply_style_transfer(file_path, hub_module)
@@ -126,6 +135,8 @@ def main():
         image_tags = ["tag1", "tag2", "tag3"]  # Remplacez ceci par les vrais tags de l'image
         generated_text = generate_text(image_tags, prompt)
         print(f"Texte généré : {generated_text}")
-
+        # Affichage de l'image modifiée
+        show_image(styled_image_path)
+        
 if __name__ == "__main__":
     main()
