@@ -1,18 +1,24 @@
----
-title: Projet de Traitement d'Images avec Azure, TensorFlow et OpenAI
+```yaml
+title: "Projet de Traitement d'Images avec Azure, TensorFlow et OpenAI"
 author:
-    - Thelma LUM
-    - Mohamed YAHIAOUI
-    - Franck malève Takuete
-date: 2024-05-14
+  - Thelma LUM
+  - Mohamed YAHIAOUI
+  - Franck malève Takuete
+date: "2024-05-16"
 geometry:
-    - top=20mm
-    - left=20mm
-    - right=10mm
-    - bottom=10mm
-    - heightrounded
+  - top=20mm
+  - left=20mm
+  - right=10mm
+  - bottom=10mm
+  - heightrounded
 bibliography: [biblio.bib]
 ---
+
+## Bibliographie
+- Documentation officielle de TensorFlow : [https://www.tensorflow.org](https://www.tensorflow.org)
+- Documentation officielle de TensorFlow Hub : [https://www.tensorflow.org/hub](https://www.tensorflow.org/hub)
+- Documentation officielle d'OpenAI : [https://beta.openai.com/docs](https://beta.openai.com/docs)
+- Documentation officielle d'Azure Cognitive Services : [https://docs.microsoft.com/fr-fr/azure/cognitive-services/](https://docs.microsoft.com/fr-fr/azure/cognitive-services/)
 
 ## Contexte et Objectifs
 
@@ -37,3 +43,70 @@ OpenAI GPT-3 est un modèle de langage de grande échelle, capable de générer 
 3. **Transfert de Style avec TensorFlow** : Implémentation d'un algorithme de transfert de style pour appliquer des effets artistiques à l'image.
 4. **Génération de Texte avec OpenAI GPT-3** : Utilisation de GPT-3 pour générer un texte descriptif basé sur le contenu visuel de l'image.
 5. **Affichage des Résultats** : Présentation des informations extraites de l'image et du texte généré à l'utilisateur.
+
+## Exemple d'Utilisation
+Le script `projet-Image.py` permet de sélectionner une image, d'analyser son contenu à l'aide des services Azure Cognitive Services, d'appliquer un effet de transfert de style avec TensorFlow, de générer un texte descriptif avec OpenAI GPT-3, et d'afficher les résultats obtenus.
+
+## Architecture et Bibliothèques Utilisées
+- **Azure Cognitive Services** : Utilisé pour l'analyse de contenu d'image.
+- **TensorFlow** : Utilisé pour le transfert de style.
+- **TensorFlow Hub** : Utilisé pour charger le modèle de transfert de style pré-entraîné.
+- **OpenAI GPT-3** : Utilisé pour générer du texte descriptif.
+- **Tkinter** : Utilisé pour l'interface utilisateur permettant de sélectionner une image.
+- **os** : Utilisé pour les opérations liées aux fichiers et aux répertoires.
+- **yaml** : Utilisé pour charger les clés d'API à partir d'un fichier YAML.
+- **openai** : Utilisé pour l'accès à l'API OpenAI GPT-3.
+- **azure.cognitiveservices.vision.computervision** : Utilisé pour l'accès à l'API Azure Cognitive Services Computer Vision.
+- **msrest.authentication** : Utilisé pour l'authentification auprès des services Azure Cognitive Services.
+
+## Fonctionnement du Code
+- **load_api_keys()** : Charge les clés d'API à partir du fichier keys.yaml.
+- **download_style_transfer_model()** : Télécharge le modèle de transfert de style pré-entraîné depuis TensorFlow Hub.
+- **apply_style_transfer(file_path, hub_module)** : Applique le transfert de style à une image spécifiée.
+- **generate_text(tags, prompt)** : Génère du texte descriptif en fonction des tags de l'image et d'une demande de modification.
+- **describe_image(file_path, api_credentials)** : Obtient une description de l'image à l'aide des services Azure Cognitive Services.
+- **main()** : Fonction principale qui coordonne l'exécution des différentes étapes du projet.
+
+## Installation
+
+### 1. Clonez ce dépôt sur votre machine locale
+
+```bash
+git clone <URL_du_dépôt>
+```
+
+### 2. Installez les paquets Python requis
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Configurez les clés API
+
+- Créez un fichier `keys.yaml` dans le répertoire `private`.
+- Ajoutez vos clés d'API Azure Cognitive Services et OpenAI GPT-3 au fichier `keys.yaml` dans le format suivant 
+
+```bash
+mkdir private
+touch private/keys.yaml
+```
+
+```yaml
+azure_endpoint: "YOUR_AZURE_ENDPOINT"
+azure_key: "YOUR_AZURE_KEY"
+openai_key: "YOUR_OPENAI_KEY"
+```
+Remplacez `VOTRE_ENDPOINT_AZURE`, `VOTRE_CLE_AZURE` et `VOTRE_CLE_OPENAI` par vos propres clés d'API.
+
+## Comment exécuter le script
+
+Pour exécuter le script `projet-Image.py`, assurez-vous d'être dans le répertoire contenant le fichier et exécutez la commande suivante dans votre terminal :
+
+```bash
+python projet-Image.py
+```
+
+## Conclusion
+
+Ce projet démontre les possibilités offertes par l'intégration de différentes technologies pour le traitement d'images et la génération de texte. En combinant les services cloud avec des bibliothèques open-source, il est possible de créer des systèmes puissants capables d'analyser, transformer et interpréter des données visuelles de manière automatique et intelligente.
+```
