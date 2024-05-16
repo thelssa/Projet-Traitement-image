@@ -1,10 +1,10 @@
-```yaml
+---
 title: "Projet de Traitement d'Images avec Azure, TensorFlow et OpenAI"
 author:
   - Thelma LUM
   - Mohamed YAHIAOUI
   - Franck malève Takuete
-date: "2024-05-16"
+date: "2024-05-14"
 geometry:
   - top=20mm
   - left=20mm
@@ -59,25 +59,17 @@ Le script `projet-Image.py` permet de sélectionner une image, d'analyser son co
 - **azure.cognitiveservices.vision.computervision** : Utilisé pour l'accès à l'API Azure Cognitive Services Computer Vision.
 - **msrest.authentication** : Utilisé pour l'authentification auprès des services Azure Cognitive Services.
 
-## Fonctionnement du Code
-- **load_api_keys()** : Charge les clés d'API à partir du fichier keys.yaml.
-- **download_style_transfer_model()** : Télécharge le modèle de transfert de style pré-entraîné depuis TensorFlow Hub.
-- **apply_style_transfer(file_path, hub_module)** : Applique le transfert de style à une image spécifiée.
-- **generate_text(tags, prompt)** : Génère du texte descriptif en fonction des tags de l'image et d'une demande de modification.
-- **describe_image(file_path, api_credentials)** : Obtient une description de l'image à l'aide des services Azure Cognitive Services.
-- **main()** : Fonction principale qui coordonne l'exécution des différentes étapes du projet.
-
 ## Installation
 
 ### 1. Clonez ce dépôt sur votre machine locale
 
-```bash
+```
 git clone <URL_du_dépôt>
 ```
 
 ### 2. Installez les paquets Python requis
 
-```bash
+```
 pip install -r requirements.txt
 ```
 
@@ -86,27 +78,23 @@ pip install -r requirements.txt
 - Créez un fichier `keys.yaml` dans le répertoire `private`.
 - Ajoutez vos clés d'API Azure Cognitive Services et OpenAI GPT-3 au fichier `keys.yaml` dans le format suivant 
 
-```bash
-mkdir private
-touch private/keys.yaml
-```
-
 ```yaml
 azure_endpoint: "YOUR_AZURE_ENDPOINT"
 azure_key: "YOUR_AZURE_KEY"
 openai_key: "YOUR_OPENAI_KEY"
 ```
+
 Remplacez `VOTRE_ENDPOINT_AZURE`, `VOTRE_CLE_AZURE` et `VOTRE_CLE_OPENAI` par vos propres clés d'API.
 
 ## Comment exécuter le script
 
 Pour exécuter le script `projet-Image.py`, assurez-vous d'être dans le répertoire contenant le fichier et exécutez la commande suivante dans votre terminal :
 
-```bash
+```
 python projet-Image.py
 ```
 
 ## Conclusion
 
 Ce projet démontre les possibilités offertes par l'intégration de différentes technologies pour le traitement d'images et la génération de texte. En combinant les services cloud avec des bibliothèques open-source, il est possible de créer des systèmes puissants capables d'analyser, transformer et interpréter des données visuelles de manière automatique et intelligente.
-```
+``` 
